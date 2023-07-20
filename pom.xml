@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch.rcode.oas</groupId>
+    <artifactId>OasSampleBuild</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>OasSampleBuild</name>
+    <description>Generates simple API</description>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.6.0</version>
+<!--                <version>7.0.0-beta</version>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <apiPackage>ch.rcode.oas.api</apiPackage>
+                            <modelPackage>ch.rcode.oas.models</modelPackage>
+                            <inputSpec>${project.basedir}/sample-oas.yaml</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <configOptions>
+                                <sourceFolder>src/openapi-gen/java/main</sourceFolder>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                                <booleanGetterPrefix>is</booleanGetterPrefix>
+                                <openApiNullable>false</openApiNullable>
+                                <interfaceOnly>true</interfaceOnly>
+                                <controllerExceptions>true</controllerExceptions>
+                                <dateLibrary>java8</dateLibrary>
+                                <documentationProvider>none</documentationProvider>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
