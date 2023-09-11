@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Sample API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "App",
+      "url": "https://localhost"
+    },
+    "description": "Sample OAS for bug."
+  },
+  "paths": {
+    "/upload/{id}/file": {
+      "put": {
+        "operationId": "putFile",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID",
+            "required": true,
+            "schema": {
+              "pattern": "\\\\d{4}",
+              "type": "string"
+            },
+            "example": "1234"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "File image",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "contentType": "image/png, image/jpeg"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Uploaded"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  }
+}
