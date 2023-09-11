@@ -22,8 +22,8 @@ paths:
             type: string
           example: "1234"
       requestBody:
-        description: File image
         required: true
+        description: File image
         content:
           multipart/form-data:
             schema:

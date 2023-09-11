@@ -19,16 +19,17 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>6.6.0</version>
-<!--                <version>7.0.0-beta</version>-->
+<!-- Also reproducible on the older release -->
+<!--                <version>6.6.0</version>-->
+                <version>7.0.0</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <apiPackage>ch.rcode.oas.api</apiPackage>
-                            <modelPackage>ch.rcode.oas.models</modelPackage>
+                            <apiPackage>com.example.oas.api</apiPackage>
+                            <modelPackage>com.example.oas.models</modelPackage>
                             <inputSpec>${project.basedir}/sample-oas.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <configOptions>
